@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#game {
+    width: auto;
+    height: 661PX;
+    border: 1px solid black;
+    margin: auto;
+    overflow: hidden;
+    background-image: url(/images/mombasanight.png);
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+#hornet {
+    width: 80px;
+    height: 40px;
+    background-image: url(/images/hornet.png);
+    position: absolute;
+    top: 320px;
+}
