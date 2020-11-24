@@ -25,12 +25,12 @@
 
 #banshee {
     width: 71px;
-    height: 38px;
+    height: 37px;
     background-image: url(/images/banshee.png);
     position: absolute;
     right: 100%;
     bottom: 500px;
-    animation: phantom 3s infinite linear;
+    animation: banshee 5s infinite linear;
 }
 
 @keyframes banshee{
@@ -38,9 +38,24 @@
     100%{left:-71px}
 }
 
+#elite {
+    width: 91px;
+    height: 40px;
+    background-image: url(/images/elite.png);
+    position: absolute;
+    right: 100%;
+    bottom: 400px;
+    animation: elite 3s infinite linear;
+}
+
+@keyframes elite{
+    0%{left:100%}
+    100%{left:-71px}
+}
+
 #phantom {
-    width: 250px;
-    height: 120px;
+    width: 251px;
+    height: 119px;
     background-image: url(/images/phantom.png);
     position: absolute;
     right: 100%;

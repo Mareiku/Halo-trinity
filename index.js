@@ -66,6 +66,30 @@ function movingBansheeLeft() {
 
 movingBansheeLeft();
 
+//Making the Elite attack the Hornet!
+
+function scrollingElite() {
+    backgroundPosition --;
+    setTimeout(function() {;
+        scrollingElite();
+}, 12);
+}
+
+scrollingElite();
+
+var elitePosition = 600;
+
+function movingEliteLeft() {
+    elitePosition --;
+    document.getElementById("elite").style.left = elitePosition + "px ";
+    console.log("movingEliteLeft");
+    setTimeout(function() {;
+        movingEliteLeft();
+}, 1);
+}
+
+movingEliteLeft();
+
 
 //will offer the possibility to go up!
 
