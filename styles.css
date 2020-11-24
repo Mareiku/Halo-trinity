@@ -21,3 +21,22 @@
     position: absolute;
     top: 320px;
 }
+
+#banshee {
+    width: 71px;
+    height: 38px;
+    background-image: url(/images/banshee.png);
+    position: absolute;
+    right: 600px;
+    bottom: 150px;
+    animation: block 2s infinite linear;
+}
+
+#phantom {
+    width: 250px;
+    height: 120px;
+    background-image: url(/images/phantom.png);
+    position: absolute;
+    right: 320px;
+    bottom: 500px;
+}
