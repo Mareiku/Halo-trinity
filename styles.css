@@ -1,7 +1,52 @@
+@font-face {
+    font-family: 'pixelatedregular';
+    src: url('pixelated_regular-webfont.woff2') format('woff2'),
+         url('pixelated_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
     padding: 0;
     margin: 0;
     overflow: hidden;
+}
+
+#start-screen {
+    height: 664px;
+    background: url(/images/startbackground.png)no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+}
+
+#logo {
+    position: absolute;
+    bottom: 250px;
+    left: 125px;
+}
+
+#history {
+    position: absolute;
+    bottom: 200px;
+    left: 50px;
+}
+
+#start-button {
+    width: 400px;
+    height: 100px;
+    background-color: black;
+    border: white 3px solid;
+    background-image: url(/images/buttonBackground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 50px;
+    left: 150px;
 }
 
 #game {
@@ -13,6 +58,7 @@
     background-image: url(/images/mombasanight.png);
     background-size: contain;
     background-repeat: repeat-x;
+    display: none;
 }
 
 #hornet {
@@ -23,13 +69,12 @@
     top: 320px;
 }
 
-#banshee {
+#banshee, #banshee2, #banshee3 {
     width: 71px;
     height: 37px;
     background-image: url(/images/banshee.png);
     position: absolute;
     right: 100%;
-    bottom: 500px;
     animation: banshee 5s infinite linear;
 }
 
@@ -38,7 +83,7 @@
     100%{left:-71px}
 }
 
-#elite {
+#elite, #elite2 {
     width: 91px;
     height: 40px;
     background-image: url(/images/elite.png);
@@ -60,7 +105,7 @@
     position: absolute;
     right: 100%;
     bottom: 150px;
-    animation: phantom 7s infinite linear;
+    animation: phantom 6s infinite linear;
 }
 
 @keyframes phantom{
