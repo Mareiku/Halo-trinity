@@ -18,25 +18,53 @@ function scrollingBackground() {
 
 scrollingBackground();
 
+//Making the Phantom attack the Hornet!
+
 function scrollingPhantom() {
     backgroundPosition --;
-    document.getElementById("phantom").style.backgroundPosition = backgroundPosition + "px 0px";
     setTimeout(function() {;
         scrollingPhantom();
-}, 15);
+}, 12);
 }
 
 scrollingPhantom();
 
+var phantomPosition = 600;
+
+function movingPhantomLeft() {
+    phantomPosition --;
+    document.getElementById("phantom").style.left = phantomPosition + "px ";
+    console.log("movingPhantomLeft");
+    setTimeout(function() {;
+        movingPhantomLeft();
+}, 10);
+}
+
+movingPhantomLeft();
+
+//Making the Banshee attack the Hornet!
+
 function scrollingBanshee() {
     backgroundPosition --;
-    document.getElementById("banshee").style.backgroundPosition = backgroundPosition + "px 0px";
     setTimeout(function() {;
         scrollingBanshee();
-}, 15);
+}, 12);
 }
 
 scrollingBanshee();
+
+var bansheePosition = 600;
+
+function movingBansheeLeft() {
+    bansheePosition --;
+    document.getElementById("banshee").style.left = bansheePosition + "px ";
+    console.log("movingBansheeLeft");
+    setTimeout(function() {;
+        movingBansheeLeft();
+}, 1);
+}
+
+movingBansheeLeft();
 
 
 //will offer the possibility to go up!
@@ -70,15 +98,4 @@ document.body.onkeydown = function(e){
         movingHornetUp();
     }
 };
-
-// function attackingBanshee() {
-//     bansheePosition +=50;
-//     document.getElementById("banshee").style.backgroundPosition = bansheePosition + "px ";
-//     console.log("attackingBanshee");
-//     setTimeout(function() {;
-//         attackingBanshee();
-// }, 15);
-// }
-
-// attackingBanshee();
 

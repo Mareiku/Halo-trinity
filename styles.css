@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 #game {
@@ -27,9 +28,14 @@
     height: 38px;
     background-image: url(/images/banshee.png);
     position: absolute;
-    right: 600px;
-    bottom: 150px;
-    animation: block 2s infinite linear;
+    right: 100%;
+    bottom: 500px;
+    animation: phantom 3s infinite linear;
+}
+
+@keyframes banshee{
+    0%{left:100%}
+    100%{left:-71px}
 }
 
 #phantom {
@@ -37,6 +43,12 @@
     height: 120px;
     background-image: url(/images/phantom.png);
     position: absolute;
-    right: 320px;
-    bottom: 500px;
+    right: 100%;
+    bottom: 150px;
+    animation: phantom 7s infinite linear;
+}
+
+@keyframes phantom{
+    0%{left:100%}
+    100%{left:-250px}
 }
