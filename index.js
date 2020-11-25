@@ -1,57 +1,94 @@
-// score value during the game
+// Score value during the game
 
 var scorecontainer = document.getElementById("score")
 
-//menu theme music
+// Menu theme music
 
 var menuTheme = new Audio();
-
 menuTheme.src ="/music/menuTheme.mp3";
 
 menuTheme.play();
 
-//game theme music
+var gameOverTheme = new Audio();
+gameOverTheme.src ="/music/gameOverTheme.mp3";
+
+// Game theme music
 
 var gameTheme = new Audio();
-
 gameTheme.src = "/music/gameTheme.mp3";
+
+
+var oof = new Audio();
+oof.src = "/music/hit.mp3";
 
 var backgroundPosition = 0;
 
-//menu buttons
-
-function startGame() {
-    menuTheme.pause();
-    var game = document.getElementById("game");
-    var menu = document.getElementById("start-screen");
-    menu.style.display = "none";
-    game.style.display = "block";
-    gameTheme.play();
-}
-
-//will offer the possibility to go up!
+var phantom = document.getElementsByClassName("phantom");
+var banshee = document.getElementsByClassName("banshee");
+var elite = document.getElementsByClassName("elite");
+var ennemies = document.getElementsByClassName("ennemies");
+var game = document.getElementById("game");
+var menu = document.getElementById("start-screen");
+var MenuText = document.getElementById("history");
+var score = 0;
 
 var hornetPosition = 320;
 
-function movingHornetUp() {
-    hornetPosition -=7.5;
+// Menu buttons
+
+function startGame() {
+    score = 0;
+    hornetPosition = 320;
     document.getElementById("hornet").style.top = hornetPosition + "px ";
-    console.log("movingHornetUp");
+    backgroundPosition = 0;
+
+    scorecontainer.innerHTML = score;
+    menuTheme.pause();
+    
+    menu.style.display = "none";
+    game.style.display = "block";
+    gameTheme.play();
+
+    randomPhantomPlacement();
+    randomBansheePlacement();
+    randomElitePlacement();
 }
 
-movingHornetUp();
+function gameover() {
+    gameTheme.pause();
+    gameOverTheme.play();
+    oof.play();
 
-//will offer the possibility to go down!
+    game.style.display = "none";
+    menu.style.display = "block";
+
+    MenuText.innerHTML = "<h1>MISSION FAILED</h1><br>You've failed your mission soldier...<br>Your score was " + score + ", but that's not what matters the most, right?"
+}
+
+
+// Will offer the possibility to go up!
+
+
+function movingHornetUp() {
+    if (hornetPosition >= 40) {
+        hornetPosition -=20;
+        document.getElementById("hornet").style.top = hornetPosition + "px ";
+        //console.log("movingHornetUp");
+    }
+}
+
+
+// Will offer the possibility to go down!
 
 function movingHornetDown() {
-    hornetPosition +=7.5;
-    document.getElementById("hornet").style.top = hornetPosition + "px ";
-    console.log("movingHornetDown");
+    if (hornetPosition <= 600) {
+        hornetPosition +=20;
+        document.getElementById("hornet").style.top = hornetPosition + "px ";
+        //console.log("movingHornetDown");
+    }
 }
 
-movingHornetDown();
-
-//will offer the possibility to move the Hornet!
+// Will offer the possibility to move the Hornet!
 
 document.body.onkeydown = function(e){
     if(e.keyCode === 40) {
@@ -61,22 +98,28 @@ document.body.onkeydown = function(e){
     }
 };
 
-// will move the background at a decent rate
+// Will move the background at a decent rate
 
-function scrollingBackground() {
-    backgroundPosition --;
+/*function scrollingBackground() {
+    backgroundPosition -= 3;
     document.getElementById("game").style.backgroundPosition = backgroundPosition + "px 0px";
     setTimeout(function() {;
         scrollingBackground();
-}, 2);
-}
+    }, 2);
+}*/
 
-scrollingBackground();
+var bgmove = setInterval(() => {
+    backgroundPosition -= 3;
+    document.getElementById("game").style.backgroundPosition = backgroundPosition + "px 0px";
+}, 15);
 
-//Making the Phantom attack the Hornet!
+
+//scrollingBackground();
+
+// Making the Phantom attack the Hornet!
 
 
-var phantomPosition = 600;
+/*var phantomPosition = 600;
 
 function movingPhantomLeft() {
     phantomPosition --;
@@ -90,12 +133,12 @@ function randomHeightPhantom() {
     let phantom = document.getElementById("phantom");
     let height = Math.floor( Math.random() * 425 );
     phantom.style.bottom = height +"px"
-}
+}*/
 
-//Making the Banshee attack the Hornet!
+// Making the Banshee attack the Hornet!
 
 
-var bansheePosition = 600;
+/*var bansheePosition = 600;
 
 function movingBansheeLeft() {
     bansheePosition --;
@@ -103,9 +146,9 @@ function movingBansheeLeft() {
     console.log("movingBansheeLeft");
 }
 
-movingBansheeLeft();
+movingBansheeLeft();*/
 
-function randomHeightBanshee() {
+/*function randomHeightBanshee() {
     let banshee = document.getElementById("banshee");
     let height = Math.floor( Math.random() * 650 );
     if (height<=450){
@@ -123,20 +166,42 @@ function randomHeightBanshee() {
     let banshee3 = document.getElementById("banshee3");
     let height3 = Math.floor( Math.random() * 325 );
         banshee3.style.bottom = height3 +"px";
-}
+}*/
 
 // Covenants score count
-var score = 0;
-// Covies
-var banshee = document.getElementsByClassName("banshee");
+
+
+// Banshes
 for (var i = 0; i < banshee.length; i++) {
-    // When a covie gets out of the screen
+    // When Covies gets out of the screen
     banshee[i].addEventListener("animationiteration", function(){
+        // The vehicle passes
         score++;
         scorecontainer.innerHTML = score;
-        console.log(score);
-        var random = (Math.random()*600);
+
+        // Put banshee between top and bottom of screen (661), substract banshee height (37 px) to ensure banshee is not off-screen
+        // Math abs makes negative numbers positive, so no off-screen to the top
+        var random = Math.abs(Math.floor(Math.random()*661) - 37);
         this.style.top = random + "px";
+
+        // We relaunch a new bansuee at a random interval
+        this.style.animationPlayState = "paused";
+        var self = this;
+        setTimeout(function() {;
+            self.style.animationPlayState = "running";
+        }, Math.random()*2000);
+    });
+}
+
+// Elites, see banshee, just adapted
+for (var i = 0; i < elite.length; i++) {
+    elite[i].addEventListener("animationiteration", function(){
+        score += 5;
+        scorecontainer.innerHTML = score;
+
+        var random = Math.abs(Math.floor(Math.random()*661) - 40);
+        this.style.top = random + "px";
+
         this.style.animationPlayState = "paused";
         var self = this;
         setTimeout(function() {;
@@ -146,10 +211,91 @@ for (var i = 0; i < banshee.length; i++) {
 }
 
 
-//Making the Elite attack the Hornet!
+// Phantom, see banshee, just adapted
+for (var i = 0; i < phantom.length; i++) {
+    phantom[i].addEventListener("animationiteration", function(){
+        score += 10;
+        scorecontainer.innerHTML = score;
+
+        var random = Math.abs(Math.floor(Math.random()*661) - 119);
+        this.style.top = random + "px";
+
+        this.style.animationPlayState = "paused";
+        var self = this;
+        setTimeout(function() {;
+            self.style.animationPlayState = "running";
+        }, Math.random()*2000);
+    });
+}
+
+function randomBansheePlacement() {
+    for (var i = 0; i < banshee.length; i++) {
+        var random = Math.abs(Math.floor(Math.random()*661) - 119);
+        banshee[i].style.top = random + "px";
+        var self = banshee[i];
+        setTimeout(function() {;
+            self.style.animationPlayState = "running";
+        }, Math.random()*2000);
+    };
+}
+
+function randomElitePlacement() {
+    for (var i = 0; i < elite.length; i++) {
+        var random = Math.abs(Math.floor(Math.random()*661) - 119);
+        elite[i].style.top = random + "px";
+        var self = elite[i];
+        setTimeout(function() {;
+            self.style.animationPlayState = "running";
+        }, Math.random()*2000);
+    };
+}
+
+function randomPhantomPlacement() {
+    for (var i = 0; i < phantom.length; i++) {
+        var random = Math.abs(Math.floor(Math.random()*661) - 119);
+        phantom[i].style.top = random + "px";
+        var self = phantom[i];
+        setTimeout(function() {;
+            self.style.animationPlayState = "running";
+        }, Math.random()*2000);
+    };
+}
 
 
-var elitePosition = 600;
+/* HERE WE MAKE COLLISIONS */
+
+// Every 20 ms we check if there is a collision
+setInterval(function() {
+    var hornetBottom = hornetPosition + 40;
+    var hornetTop = hornetPosition;
+
+    for (let i = 0; i < ennemies.length; i++) {
+        var ennemy = ennemies[i];
+        // Here the Y pos is defined randomly by the JS but is constant so we know it
+        var enPosY = parseInt(ennemy.style.top);
+        var enHeight = parseInt(window.getComputedStyle(ennemy).getPropertyValue("height"));
+        var enPosYbottom = enPosY + enHeight;
+        // Here the X position changes because of the CSS animation so we compute the X position
+        var enPosX = parseInt(window.getComputedStyle(ennemy).getPropertyValue("left"));
+        
+        // An ennemy is at the sampe X as the falcon
+        if (enPosX <= 80) {
+            if (
+                (hornetTop > enPosY) && (hornetTop < enPosYbottom) // Le hornet touche par le bas
+                ||
+                (hornetBottom > enPosY) && (hornetBottom < enPosYbottom) // Le hornet touche par le bas*/
+            ) {
+                gameover();
+            }
+        }
+    }
+}, 20);
+
+
+// Making the Elite attack the Hornet!
+
+
+/*var elitePosition = 600;
 
 function movingEliteLeft() {
     elitePosition --;
@@ -170,6 +316,6 @@ function randomHeightElite() {
     let elite2 = document.getElementById("elite2");
     let height2 = Math.floor( Math.random() * 310 );
     elite2.style.bottom = height2 +"px";
-}
+}*/
 
 
