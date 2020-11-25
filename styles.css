@@ -1,12 +1,3 @@
-@font-face {
-    font-family: 'pixelatedregular';
-    src: url('pixelated_regular-webfont.woff2') format('woff2'),
-         url('pixelated_regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -33,6 +24,11 @@
     position: absolute;
     bottom: 200px;
     left: 50px;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    font-style: normal;
+    color: white;
+    text-align: center;
 }
 
 #start-button {
@@ -75,7 +71,7 @@
     background-image: url(/images/banshee.png);
     position: absolute;
     right: 100%;
-    animation: banshee 5s infinite linear;
+    animation: banshee 3s infinite linear;
 }
 
 @keyframes banshee{
@@ -105,10 +101,25 @@
     position: absolute;
     right: 100%;
     bottom: 150px;
-    animation: phantom 6s infinite linear;
+    animation: phantom 4s infinite linear;
 }
 
 @keyframes phantom{
     0%{left:100%}
     100%{left:-250px}
+}
+
+#score {
+    width: 100px;
+    height: 34px;
+    color: #3EB7EA;
+    border-radius: 15px;
+    border: white 3px solid;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    bottom: 600px;
+    left: 700px;
 }

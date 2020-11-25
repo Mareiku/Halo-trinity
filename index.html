@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> 
     <title> Halo Trinity </title>
 </head>
 <body>
@@ -12,18 +14,29 @@
         <img src="/images/gameLogo.png" style="width: 500px;">
     </div>
         <div id="history">
-            <img src="/images/prologue.png" style="width: 600px;">
+            <a>
+                PROLOGUE :<br>
+                "On the 22nd of October 2552, the Battle for Mombasa ended,<br> 
+                numerous lives were lost. Marines, ODST and Spartans fought aside,<br> 
+                but it wasn't enough. The city fell, and all hope was lost..<br>
+                Except, for your squad. Ramirez, you, and Kurt are still alive,<br>
+                you have to escape the city to deliver crucial intel to the<br>
+                Office of Naval Intelligence FOB near Tsavo. Get to it,<br>
+                hop in your Hornet, and accomplish your mission."<br><br>
+                    - Corporal Taylor "Dutch" Henry Miles, Unit Alpha-Nine
+            </a>
         </div>
     <button id="start-button" onclick="startGame()"></button>
     </div>
     <div id="game">
-        <div id="banshee"></div>
-        <div id="banshee2"></div>
-        <div id="banshee3"></div>
-        <div id="elite"></div>
-        <div id="elite2"></div>
-        <div id="phantom"></div>
-        <div id="hornet"></div>
+        <div id="score">0</div>
+        <div class="banshee" id="banshee"></div>
+        <div class="banshee" id="banshee2"></div>
+        <div class="banshee" id="banshee3"></div>
+        <div class="banshee" id="elite"></div>
+        <div class="banshee" id="elite2"></div>
+        <div class="banshee" id="phantom"></div>
+        <div class="banshee" id="hornet"></div>
     </div>
 </body>
 <script src="index.js"></script>
