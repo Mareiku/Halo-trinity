@@ -101,7 +101,7 @@
 #phantom {
     width: 251px;
     height: 119px;
-    background-image: url(/images/phantom.png);
+    background-image: url(./images/phantom.png);
     position: absolute;
     right: 100%;
     top: 100px;
