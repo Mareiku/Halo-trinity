@@ -19,7 +19,7 @@ gameTheme.src = "./music/gameTheme.mp3";
 
 
 var oof = new Audio();
-oof.src = "/music/hit.mp3";
+oof.src = "./music/hit.mp3";
 
 var backgroundPosition = 0;
 
