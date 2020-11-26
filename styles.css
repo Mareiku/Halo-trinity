@@ -6,7 +6,7 @@
 
 #start-screen {
     height: 664px;
-    background: url(/images/startbackground.png)no-repeat center center fixed; 
+    background: url(./images/startbackground.png)no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -39,7 +39,7 @@
     height: 100px;
     background-color: black;
     border: white 3px solid;
-    background-image: url(/images/buttonBackground.png);
+    background-image: url(./images/buttonBackground.png);
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 15px;
@@ -54,7 +54,7 @@
     border: 1px solid black;
     margin: auto;
     overflow: hidden;
-    background-image: url(/images/mombasanight.png);
+    background-image: url(./images/mombasanight.png);
     background-size: contain;
     background-repeat: repeat-x;
     display: none;
@@ -63,7 +63,7 @@
 #hornet {
     width: 80px;
     height: 40px;
-    background-image: url(/images/hornet.png);
+    background-image: url(./images/hornet.png);
     position: absolute;
     transition: top .1s linear;
     top: 320px;
@@ -72,7 +72,7 @@
 #banshee, #banshee2, #banshee3 {
     width: 71px;
     height: 37px;
-    background-image: url(/images/banshee.png);
+    background-image: url(./images/banshee.png);
     position: absolute;
     right: 100%;
     animation: banshee 3s infinite linear;
@@ -86,7 +86,7 @@
 #elite, #elite2 {
     width: 91px;
     height: 40px;
-    background-image: url(/images/elite.png);
+    background-image: url(./images/elite.png);
     position: absolute;
     right: 100%;
     bottom: 400px;

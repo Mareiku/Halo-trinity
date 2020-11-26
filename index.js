@@ -98,80 +98,12 @@ document.body.onkeydown = function(e){
     }
 };
 
-// Will move the background at a decent rate
-
-/*function scrollingBackground() {
-    backgroundPosition -= 3;
-    document.getElementById("game").style.backgroundPosition = backgroundPosition + "px 0px";
-    setTimeout(function() {;
-        scrollingBackground();
-    }, 2);
-}*/
-
 var bgmove = setInterval(() => {
     backgroundPosition -= 3;
     document.getElementById("game").style.backgroundPosition = backgroundPosition + "px 0px";
 }, 15);
 
-
-//scrollingBackground();
-
-// Making the Phantom attack the Hornet!
-
-
-/*var phantomPosition = 600;
-
-function movingPhantomLeft() {
-    phantomPosition --;
-    document.getElementById("phantom").style.left = phantomPosition + "px ";
-    console.log("movingPhantomLeft");
-}
-
-movingPhantomLeft();
-
-function randomHeightPhantom() {
-    let phantom = document.getElementById("phantom");
-    let height = Math.floor( Math.random() * 425 );
-    phantom.style.bottom = height +"px"
-}*/
-
-// Making the Banshee attack the Hornet!
-
-
-/*var bansheePosition = 600;
-
-function movingBansheeLeft() {
-    bansheePosition --;
-    document.getElementById("banshee").style.left = bansheePosition + "px ";
-    console.log("movingBansheeLeft");
-}
-
-movingBansheeLeft();*/
-
-/*function randomHeightBanshee() {
-    let banshee = document.getElementById("banshee");
-    let height = Math.floor( Math.random() * 650 );
-    if (height<=450){
-        banshee.style.bottom = "450px"
-    } else {
-        banshee.style.bottom = height +"px";
-    }
-    let banshee2 = document.getElementById("banshee2");
-    let height2 = Math.floor( Math.random() * 425 );
-    if (height2<=350){
-        banshee2.style.bottom = "350px"
-    } else {
-        banshee2.style.bottom = height2 +"px";
-    }
-    let banshee3 = document.getElementById("banshee3");
-    let height3 = Math.floor( Math.random() * 325 );
-        banshee3.style.bottom = height3 +"px";
-}*/
-
-// Covenants score count
-
-
-// Banshes
+// Banshees
 for (var i = 0; i < banshee.length; i++) {
     // When Covies gets out of the screen
     banshee[i].addEventListener("animationiteration", function(){
@@ -290,6 +222,74 @@ setInterval(function() {
         }
     }
 }, 20);
+
+// Will move the background at a decent rate
+
+/*function scrollingBackground() {
+    backgroundPosition -= 3;
+    document.getElementById("game").style.backgroundPosition = backgroundPosition + "px 0px";
+    setTimeout(function() {;
+        scrollingBackground();
+    }, 2);
+}*/
+
+//scrollingBackground();
+
+// Making the Phantom attack the Hornet!
+
+
+/*var phantomPosition = 600;
+
+function movingPhantomLeft() {
+    phantomPosition --;
+    document.getElementById("phantom").style.left = phantomPosition + "px ";
+    console.log("movingPhantomLeft");
+}
+
+movingPhantomLeft();
+
+function randomHeightPhantom() {
+    let phantom = document.getElementById("phantom");
+    let height = Math.floor( Math.random() * 425 );
+    phantom.style.bottom = height +"px"
+}*/
+
+// Making the Banshee attack the Hornet!
+
+
+/*var bansheePosition = 600;
+
+function movingBansheeLeft() {
+    bansheePosition --;
+    document.getElementById("banshee").style.left = bansheePosition + "px ";
+    console.log("movingBansheeLeft");
+}
+
+movingBansheeLeft();*/
+
+/*function randomHeightBanshee() {
+    let banshee = document.getElementById("banshee");
+    let height = Math.floor( Math.random() * 650 );
+    if (height<=450){
+        banshee.style.bottom = "450px"
+    } else {
+        banshee.style.bottom = height +"px";
+    }
+    let banshee2 = document.getElementById("banshee2");
+    let height2 = Math.floor( Math.random() * 425 );
+    if (height2<=350){
+        banshee2.style.bottom = "350px"
+    } else {
+        banshee2.style.bottom = height2 +"px";
+    }
+    let banshee3 = document.getElementById("banshee3");
+    let height3 = Math.floor( Math.random() * 325 );
+        banshee3.style.bottom = height3 +"px";
+}*/
+
+// Covenants score count
+
+
 
 
 // Making the Elite attack the Hornet!
